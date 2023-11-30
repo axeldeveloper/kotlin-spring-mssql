@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 import com.api.sisged.service.EmployeeService
 import com.api.sisged.model.EmployeeEntity
-
+import jakarta.validation.Valid
 
 
 @RequestMapping("/api/v1/")
@@ -35,7 +35,7 @@ class EmployeeController(val service: EmployeeService) {
 
     @PostMapping("/employees")
     @ResponseStatus(HttpStatus.CREATED)
-    fun savePlayer(@RequestBody payload: EmployeeEntity): EmployeeEntity = service.create(payload)
+    fun savePlayer(@RequestBody @Valid payload: EmployeeEntity): EmployeeEntity = service.create(payload)
 
     // @PutMapping("/employee/{id}")
     // fun updateById(@PathVariable("id") employeeId: Long) : ResponseEntity<Long> {

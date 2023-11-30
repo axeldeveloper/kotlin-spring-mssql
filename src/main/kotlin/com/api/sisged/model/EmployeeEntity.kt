@@ -2,6 +2,8 @@ package com.api.sisged.model
 
 import java.time.LocalDate
 import jakarta.persistence.*
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Email
 
 /**
  * Represents the database entity for storing the employee details.
@@ -17,6 +19,7 @@ data class EmployeeEntity(
         val firstName: String = "",
         @Column(name = "middle_name", nullable = true)
         val middleName: String? = null,
+        @field:NotBlank(message = "Name must not be blank")
         @Column(name = "last_name", nullable = false)
         val lastName: String = "",
         @Column(name = "email_address", nullable = false)
